@@ -1,0 +1,7 @@
+Yahoo! Weather applet
+
+index.php
+	Simple controller, calls yw-main.php
+
+yw-main.php
+	Builds query URL, fetches JSON, converts to PHP object, and renders HTML
