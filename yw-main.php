@@ -43,6 +43,7 @@ $YwTemp = "";
 $YwPubDate = "";					
 /*! URL to condition graphic */
 $YwImgUrl = "";						
+$YwImgEncoded = "";						
 
 /*=== Main ===*/
 
@@ -75,6 +76,7 @@ if (strlen ($yw_json) > 0)
 
 		// build URL to weather graphic
 		$YwImgUrl = YW_IMG_BASE . $YwCode . YW_IMG_EXT;
+		$YwImgEncoded = 'data:image/gif;base64,' . base64_encode (file_get_contents ($YwImgUrl));
 		}
 	else
 		{
@@ -85,7 +87,7 @@ if (strlen ($yw_json) > 0)
 // render HTML...
 ?>
 <div id="yw-output">
- <img src="<?php echo $YwImgUrl; ?>" alt="Powered by Yahoo! Weather" />
+ <img src="<?php echo $YwImgEncoded; ?>" alt="Powered by Yahoo! Weather" />
  <b>Current Conditions</b><br />
  <?php echo $YwDesc; ?>, <?php echo $YwTemp; ?>&deg;F<br />
  <span class="w-date"><?php echo $YwPubDate; ?></span>
